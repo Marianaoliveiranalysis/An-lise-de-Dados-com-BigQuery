@@ -29,7 +29,13 @@ from pandas_gbq import read_gbq
 
 2️⃣ Importação dos dados com SQL
 
-A consulta foi realizada diretamente no BigQuery utilizando a função read_gbq() para carregar os dados do dataset público.
+A consulta foi realizada diretamente no BigQuery utilizando a função read_gbq() para carregar os dados do dataset público
+query = """
+    SELECT *
+    FROM bigquery-public-data.austin_bikeshare.bikeshare_trips
+    LIMIT 1000
+"""
+df = read_gbq(query, project_id='meu-projeto-ebac', dialect='standard')
 
 3️⃣ Exploração e tratamento dos dados
 
